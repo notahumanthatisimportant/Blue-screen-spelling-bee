@@ -13,6 +13,7 @@ misspell = input("Please spell /misˈspel/, the words are phonetic so you cant c
 
 if misspell == "misspell":
 	pharaoh = input("Yay you did it, lets move on to a harder one, please spell /ˈferō/\n");
+  
   if pharaoh == "pharaoh":
 		print ("yay")
 	
