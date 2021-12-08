@@ -20,7 +20,7 @@ if r.status_code == 200:
     r.raw.decode_content = True
     
     # Open a local file with wb ( write binary ) permission.
-    with open('UI/blue screen.jpg','wb') as f:
+    with open('UI/blue screen','wb') as f:
         shutil.copyfileobj(r.raw, f)
         
     print('Image sucessfully Downloaded: ',filename)
