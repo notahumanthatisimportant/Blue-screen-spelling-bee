@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
+
 ApplicationWindow {
     visible: true
     width: 1920
@@ -12,7 +13,7 @@ ApplicationWindow {
         Image {
             sourceSize.width: parent.width
             sourceSize.height: parent.height
-            source: "./blue screen.jpg"
+            source: './3VNVbnA'
             fillMode: Image.PreserveAspectCrop
         }
         Rectangle {
