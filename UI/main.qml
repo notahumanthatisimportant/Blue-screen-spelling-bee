@@ -4,7 +4,6 @@ import QtQuick.Controls 2.15
 
 ApplicationWindow {
     visible: true
-    visibility: "FullScreen"
     width: 1920
     height: 1080
     title: "HelloApp"
@@ -14,7 +13,7 @@ ApplicationWindow {
         Image {
             sourceSize.width: parent.width
             sourceSize.height: parent.height
-            source: './blue screen'
+            source: './blue screen.jpg'
             fillMode: Image.PreserveAspectCrop
         }
         Rectangle {

@@ -2,31 +2,17 @@ import sys
 import time
 from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
-
+from os.path import exists
 ## Importing Necessary Modules
-import requests # to get image from the web
-import shutil # to save it locally
 
-## Set up the image URL and filename
-image_url = "https://imgur.com/3VNVbnA"
-filename = image_url.split("/")[-1]
+file_exists = exists('./UI/blue screen.jpg')
 
-# Open the url image, set stream to True, this will return the stream content.
-r = requests.get(image_url, stream = True)
+if file_exists:
+  pass
 
-# Check if the image was retrieved successfully
-if r.status_code == 200:
-    # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
-    r.raw.decode_content = True
-    
-    # Open a local file with wb ( write binary ) permission.
-    with open('UI/blue screen','wb') as f:
-        shutil.copyfileobj(r.raw, f)
-        
-    print('Image sucessfully Downloaded: ',filename)
 else:
-    print('Image Couldn\'t be retreived')
-    exit()
+  print("You are missing a required file, please download it from https://imgur.com/PWP7j5Q and put that file in th UI folder or the gitbub repository")
+  exit()
 
 def blue():
 	print("Deleting Partitions...")
@@ -39,22 +25,56 @@ def blue():
 	engine.load('./UI/main.qml')
 	sys.exit(app.exec())
 
+print("Warning, all inputs must be lowercase otherwise they will be marked wrong\n")
+
 misspell = input("Please spell /misˈspel/, the words are phonetic so you cant cheat\n");
 
-if misspell == "misspell":
+
+if misspell == "misspell".lower():
 	pharaoh = input("Yay you did it, lets move on to a harder one, please spell /ˈferō/\n");
-  
-	if pharaoh == "pharaoh":
+	if pharaoh == "pharaoh".lower():
 
 		weird = input("Please spell /wird/\n");
-		if weird == "weird":
-			print("L")
-
-    
-
+		if weird == "weird".lower():
+			intelligence = input("Please spell inˈteləjəns/\n")
+			if intelligence == "intelligence":
+				pronunciation = input("Please spell /prəˌnənsēˈāSH(ə)\n")
+				if pronunciation == "pronunciation":
+					hand = input("Please spell /ˈhaNGkərCHif,ˈhaNGkərCHēf/\n")
+					if hand == "handkerchief":
+						print("Keep going, you are halfway there!")	
+						logorrhea = input("Please spell /ˌlôɡəˈrēə/\n")
+						if logorrhea == "logorrhea":
+							chiaroscurist = input("Please spell \ kē-ˌär-ə-ˈskyu̇r-ist , kē-ˌer-, kē-ˌa-rə-, -ˈsku̇r- \\n")
+							if chiaroscurist == "chiaroscurist":
+								gobbledegook = input("Please spell /ˈɡɒbldiɡuːk/\n")
+								if gobbledegook == "gobbledegook":
+									tomfoolery = input("You have finished the test! Good job. to end the test type end or to continue to the special mentions, please spell /tämˈfo͞ol(ə)rē/\n")
+									if tomfoolery == "end":
+										pass
+									elif tomfoolery == "tomfoolery":
+										shenanigens = input("Last one i swear! Please spell /SHəˈnanəɡənz/\n")
+										if shenanigens == "shenanigens":
+											print("Good job you spelled all the words correctly(you probably cheated thought but who am I to judge)")
+											pass
+										else:
+											blue()
+								else:
+									blue()
+							else:
+								blue()
+						else:
+							blue()
+					else:
+						blue()
+				else:
+					blue()
+			else:
+				blue()
+		else:
+			blue()
 	else:
 		blue()
-
 else:
 	blue()
 

@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.8"
 Flask = "^2.0.2"
 PyQt5 = "^5.15.6"
+reindent = "^3.5.1"
 
 [tool.poetry.dev-dependencies]
 
