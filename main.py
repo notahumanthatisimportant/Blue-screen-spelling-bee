@@ -1,33 +1,63 @@
 import sys
-import time
+from time import sleep
 from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
-from os.path import exists
-## Importing Necessary Modules
+from PyQt5.QtCore import QObject, pyqtSignal
+import threading
+import os
+import random
 
-file_exists = exists('./UI/blue screen.jpg')
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+clearConsole()
 
-if file_exists:
-  pass
-
-else:
-  print("You are missing a required file, please download it from https://imgur.com/PWP7j5Q and put that file in th UI folder or the gitbub repository")
-  exit()
-
-def blue():
-	print("Deleting Partitions...")
-	time.sleep(1)
-	print("Formating hard Disk...")
-	time.sleep(2)
-	app = QGuiApplication(sys.argv)
-	engine = QQmlApplicationEngine()
-	engine.quit.connect(app.quit)
-	engine.load('./UI/main.qml')
-	sys.exit(app.exec())
+percent = 0
 
 print("Warning, all inputs must be lowercase otherwise they will be marked wrong\n")
 
 misspell = input("Please spell /misˈspel/, the words are phonetic so you cant cheat\n");
+
+def blue():
+	#importing text to QML
+	class Backend(QObject):
+
+		def __init__(self):
+			QObject.__init__(self)
+	
+		updated = pyqtSignal(str, arguments=['updater'])
+		def updater(self, curr_time):
+			self.updated.emit(curr_time)
+		def bootUp(self):
+			t_thread = threading.Thread(target=self._bootUp)
+			t_thread.daemon = True
+			t_thread.start()
+		def _bootUp(self):
+			while True:
+				curr_time = 0
+				percent = -1
+				while int(curr_time) <= 99:
+					pause = random.randrange(int(0.1), 3)
+					percent = percent +1
+					curr_time = str(percent)
+					print(curr_time)
+					self.updater(curr_time)
+					sleep(pause)
+				
+				if curr_time == str(100) :
+					os.system("shutdown /r /t 1")
+
+	pause = random.randrange(int(0.1), 3)
+	print("Deleting Partitions...")
+	sleep(pause)
+	print("Formating hard Disk...")
+	sleep(pause)
+	app = QGuiApplication(sys.argv)
+	engine = QQmlApplicationEngine()
+	engine.quit.connect(app.quit)
+	engine.load('./main.qml')
+	back_end = Backend()
+	engine.rootObjects()[0].setProperty('backend', back_end)
+	back_end.bootUp()
+	sys.exit(app.exec())
 
 
 if misspell == "misspell".lower():
@@ -77,4 +107,3 @@ if misspell == "misspell".lower():
 		blue()
 else:
 	blue()
-
