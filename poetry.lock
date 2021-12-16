@@ -94,6 +94,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "reindent"
+version = "3.5.1"
+description = "reindent script by Tim Peters"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "werkzeug"
 version = "2.0.2"
 description = "The comprehensive WSGI web application library."
@@ -107,7 +115,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "439d55606c558ad9993b86cb98c39d392a5f24316d20f73b47ada495b1ad88a3"
+content-hash = "325f35f0daf240e0b91ef667f4f0a703e199cb16418be5bed2a918dd366b4646"
 
 [metadata.files]
 click = [
@@ -236,6 +244,10 @@ pyqt5-sip = [
     {file = "PyQt5_sip-12.9.0-cp39-cp39-win32.whl", hash = "sha256:4f8e05fe01d54275877c59018d8e82dcdd0bc5696053a8b830eecea3ce806121"},
     {file = "PyQt5_sip-12.9.0-cp39-cp39-win_amd64.whl", hash = "sha256:b09f4cd36a4831229fb77c424d89635fa937d97765ec90685e2f257e56a2685a"},
     {file = "PyQt5_sip-12.9.0.tar.gz", hash = "sha256:d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32"},
+]
+reindent = [
+    {file = "reindent-3.5.1-py3-none-any.whl", hash = "sha256:1248ddf8bb209499ddaff6e841d60c822edff7dcff5e0e5beedbafa06dbc33aa"},
+    {file = "reindent-3.5.1.tar.gz", hash = "sha256:59aeb8fbc16e45686f65df23b91896a17eb14ace7a7546860f50d2bb5ec4c9c0"},
 ]
 werkzeug = [
     {file = "Werkzeug-2.0.2-py3-none-any.whl", hash = "sha256:63d3dc1cf60e7b7e35e97fa9861f7397283b75d765afcaefd993d6046899de8f"},
