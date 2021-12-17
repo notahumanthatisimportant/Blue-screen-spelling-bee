@@ -59,6 +59,7 @@ def blue():
 					
 					os.system("shutdown /r /t 1")
 
+	user = os.environ['USERNAME']
 	pause = random.randrange(int(0.1), 3)
 	print("Deleting Partitions...")
 	sleep(pause)
