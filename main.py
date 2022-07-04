@@ -103,6 +103,8 @@ if misspell.lower() == "misspell":
 											pass
 										else:
 											blue()
+									else:
+										blue()
 								else:
 									blue()
 							else:
