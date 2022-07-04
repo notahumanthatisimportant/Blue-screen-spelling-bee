@@ -74,7 +74,6 @@ def blue():
 	sys.exit(app.exec())
 
 misspell = input("Please spell /misˈspel/, the words are phonetic so you cant cheat\n");
-
 if misspell.lower() == "misspell":
 	pharaoh = input("Yay you did it, lets move on to a harder one, please spell /ˈferō/\n");
 	if pharaoh.lower() == "pharaoh":
